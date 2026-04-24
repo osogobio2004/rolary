@@ -1,0 +1,24 @@
+# Entorno virtual (No se sube porque Render crea el suyo)
+venv/
+env/
+ENV/
+
+# Base de datos local (SQLite)
+# La ignoramos porque en producción podrías usar otra, 
+# o simplemente para no subir tus datos de prueba.
+*.sqlite3
+
+# Archivos temporales de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Archivos de configuración del editor (VS Code)
+.vscode/
+
+# Archivos estáticos recolectados (Django los generará en Render)
+staticfiles/
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
