@@ -1,0 +1,32 @@
+{% extends 'savefile/base.html' %}
+
+{% block content %}
+<h2 class="mb-5 text-center" style="font-weight: 700;">📜 Libro de Misiones</h2>
+
+{% for categoria in categorias %}
+    <div class="mb-5">
+        <h4 class="mb-3" style="color: #7A706A; border-left: 5px solid var(--pastel-pink); padding-left: 15px;">
+            {{ categoria.nombre }}
+        </h4>
+        <div class="row">
+            {% for mision in categoria.misiones %}
+            <div class="col-md-4 mb-3">
+                <div class="cozy-card h-100" style="{% if categoria.completada %}opacity: 0.8; background-color: #f8fff9; border-color: var(--mint-green);{% endif %}">
+                    <div class="d-flex align-items-center">
+                        <span style="font-size: 1.5rem; margin-right: 15px;">{{ mision.icono }}</span>
+                        <div>
+                            <h6 class="mb-0" style="font-weight: 600;">{{ mision.titulo }}</h6>
+                            {% if categoria.completada %}
+                                <small class="text-success">¡Misión Cumplida! ✨</small>
+                            {% else %}
+                                <small class="text-muted">En progreso...</small>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}
